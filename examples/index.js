@@ -1,7 +1,7 @@
 import './reset.scss';
 import './styles.scss';
 import React, { Component } from 'react';
-import HashHistory from 'react-router/lib/HashHistory';
+import { createHistory } from 'history';
 import { Router, Route, Redirect } from 'react-router';
 import Demo from './demo';
 
@@ -16,7 +16,7 @@ class App extends Component {
 }
 
 React.render((
-  <Router history={new HashHistory()}>
+  <Router history={createHistory()}>
     <Redirect from="/" to="demo" />
     <Route name="root" path="/" component={App}>
       <Route name="demo" path="/demo" component={Demo} />
