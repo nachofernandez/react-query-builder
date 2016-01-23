@@ -1,6 +1,7 @@
 import './reset.scss';
 import './styles.scss';
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import { createHistory } from 'history';
 import { Router, Route, Redirect } from 'react-router';
 import Demo from './demo';
@@ -15,11 +16,11 @@ class App extends Component {
   }
 }
 
-React.render((
+ReactDOM.render((
   <Router history={createHistory()}>
     <Redirect from="/" to="demo" />
     <Route name="root" path="/" component={App}>
       <Route name="demo" path="/demo" component={Demo} />
     </Route>
   </Router>
-), document.body);
+), document.getElementById("container"));
